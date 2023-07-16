@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { MeshPhysicalMaterial } from 'three';
+import { useFrame } from "@react-three/fiber";
 
 const Car = ({ color }) => {
     // const { scene } = useGLTF('./models/AUDI-R8.glb')
@@ -8,10 +9,16 @@ const Car = ({ color }) => {
 
     console.log(nodes, materials)
 
+    const boxRef = useRef(null)
+
+    useFrame(() => {
+        boxRef.current.rotation.z -= 0.002;
+    });
+
     return (
         <>
             {/* <primitive object={scene} /> */}
-            <group dispose={null} rotation={[-1.55, 0, 1]} position={[0, -1, 0]}>
+            <group dispose={null} rotation={[-1.55, 0, 1]} position={[0, -1, 0]} ref={boxRef}>
                 <mesh geometry={nodes['Object_2'].geometry} material={materials['Material']} />
                 <mesh geometry={nodes['Object_3'].geometry} material={materials['chrome']} />
                 <mesh geometry={nodes['Object_4'].geometry} material={materials['glass.001']} />
@@ -36,7 +43,7 @@ const Car = ({ color }) => {
                 <mesh geometry={nodes['Object_17'].geometry} material={materials['reflect']} />
                 <mesh geometry={nodes['Object_18'].geometry} material={materials['rubber.002']} />
                 <mesh geometry={nodes['Object_19'].geometry} material={materials['wheel_metal.001']} />
-            </group>
+            </group >
         </>
     );
 };

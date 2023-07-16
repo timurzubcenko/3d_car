@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <input type='color' onChange={onChangeColor} value={color} />
+      <input className='colorInput' type='color' onChange={onChangeColor} value={color} />
       <Canvas camera={{ position: [-2, 4, 12], fov: 60 }}>
         <Experience color={color} />
       </Canvas>
