@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { MeshPhysicalMaterial } from 'three';
 import { useFrame } from "@react-three/fiber";
+// import gsap from 'gsap';
 
 const Car = ({ color }) => {
     // const { scene } = useGLTF('./models/AUDI-R8.glb')
@@ -15,10 +16,17 @@ const Car = ({ color }) => {
         boxRef.current.rotation.z -= 0.002;
     });
 
+    // const testPos = () => {
+    //     gsap.to(boxRef.current.rotation, {
+    //         z: 2,
+    //         duration: 1
+    //     })
+    // }
+
     return (
         <>
             {/* <primitive object={scene} /> */}
-            <group dispose={null} rotation={[-1.55, 0, 1]} position={[0, -1, 0]} ref={boxRef}>
+            <group dispose={null} rotation={[-1.55, 0, 1]} position={[0, -1, 0]} ref={boxRef} >
                 <mesh geometry={nodes['Object_2'].geometry} material={materials['Material']} />
                 <mesh geometry={nodes['Object_3'].geometry} material={materials['chrome']} />
                 <mesh geometry={nodes['Object_4'].geometry} material={materials['glass.001']} />
@@ -36,7 +44,7 @@ const Car = ({ color }) => {
                     clearCoat: 0.5, // интенсивность прозрачного покрытия материала 0,0 до 1,0
                     clearCoatRoughness: 0.6, // шероховатость прозрачного слоя 0,0 до 1,0
                 })} />
-                <mesh geometry={nodes['Object_13'].geometry} material={materials['numberplate']} />
+                {/* <mesh geometry={nodes['Object_13'].geometry} material={materials['numberplate']} /> */}
                 <mesh geometry={nodes['Object_14'].geometry} material={materials['plastic']} />
                 <mesh geometry={nodes['Object_15'].geometry} material={materials['interior']} />
                 <mesh geometry={nodes['Object_16'].geometry} material={materials['nothing.']} />

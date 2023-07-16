@@ -4,7 +4,7 @@ import Experience from './components/Experience/Experience'
 
 function App() {
 
-  const [color, setColor] = useState('')
+  const [color, setColor] = useState('#B27B7B')
 
   const onChangeColor = (e) => {
     setColor(e.target.value)
