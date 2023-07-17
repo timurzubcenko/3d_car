@@ -14,7 +14,12 @@ function App() {
 
   return (
     <>
-      <input className='colorInput' type='color' onChange={onChangeColor} value={color} />
+      <div className="wrapper_color">
+        <div className="choose_a_color">
+          <h3>Choose a color!</h3>
+          <input className='colorInput' type='color' onChange={onChangeColor} value={color} />
+        </div>
+      </div>
       <Canvas camera={{ position: [-2, 4, 12], fov: 60 }}>
         <Experience color={color} />
       </Canvas>
