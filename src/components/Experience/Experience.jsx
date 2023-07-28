@@ -9,7 +9,7 @@ const Experience = ({ color, colorWheel, colorTires, colorInterior }) => {
             <ambientLight intensity={0.9} />
             <directionalLight position={[3.3, 5.0, 0]} />
 
-            <OrbitControls enableZoom={false} />
+            <OrbitControls enableZoom={true} />
             {/* <fog attach="fog" args={["white", 0, 50]} /> */}
             <Car color={color} colorWheel={colorWheel} colorTires={colorTires} colorInterior={colorInterior} />
             {/* <Floor /> */}
