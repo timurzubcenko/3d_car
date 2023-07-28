@@ -3,7 +3,7 @@ import Floor from '../Floor/Floor';
 import { OrbitControls } from "@react-three/drei";
 import Car from '../Car/Car';
 
-const Experience = ({ color, colorWheel, colorTires, colorInterior }) => {
+const Experience = ({ color, colorWheel, colorTires, colorInterior, colorLogo }) => {
     return (
         <>
             <ambientLight intensity={0.9} />
@@ -11,7 +11,7 @@ const Experience = ({ color, colorWheel, colorTires, colorInterior }) => {
 
             <OrbitControls enableZoom={true} />
             {/* <fog attach="fog" args={["white", 0, 50]} /> */}
-            <Car color={color} colorWheel={colorWheel} colorTires={colorTires} colorInterior={colorInterior} />
+            <Car color={color} colorWheel={colorWheel} colorTires={colorTires} colorInterior={colorInterior} colorLogo={colorLogo} />
             {/* <Floor /> */}
         </>
     );

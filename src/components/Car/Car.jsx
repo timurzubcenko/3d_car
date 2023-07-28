@@ -4,7 +4,7 @@ import { MeshPhysicalMaterial } from 'three';
 import { useFrame } from "@react-three/fiber";
 import gsap from 'gsap';
 
-const Car = ({ color, colorWheel, colorTires, colorInterior }) => {
+const Car = ({ color, colorWheel, colorTires, colorInterior, colorLogo }) => {
     // const { scene } = useGLTF('./models/AUDI-R8.glb')
     const { nodes, materials } = useGLTF('./models/toyota_supra.glb')
 
@@ -32,7 +32,13 @@ const Car = ({ color, colorWheel, colorTires, colorInterior }) => {
             {/* <primitive object={scene} /> */}
             <group dispose={null} rotation={[-1.55, 0, 1]} position={[0, -1, 0]} ref={boxRef} onClick={testPos} >
                 <mesh geometry={nodes['Object_2'].geometry} material={materials['Material']} />
-                <mesh geometry={nodes['Object_3'].geometry} material={materials['chrome']} />
+                <mesh geometry={nodes['Object_3'].geometry} material={new MeshPhysicalMaterial({
+                    color: colorLogo,
+                    roughness: 0.5, // шероховатость материала 0,0 до 1,0
+                    metalness: 0.7, // металличность материала 0,0 до 1,0
+                    clearCoat: 0.5, // интенсивность прозрачного покрытия материала 0,0 до 1,0
+                    clearCoatRoughness: 0.6, // шероховатость прозрачного слоя 0,0 до 1,0
+                })} />
                 <mesh geometry={nodes['Object_4'].geometry} material={materials['glass.001']} />
                 <mesh geometry={nodes['Object_5'].geometry} material={materials['lights11']} />
                 <mesh geometry={nodes['Object_6'].geometry} material={materials['misc_metal.001']} />

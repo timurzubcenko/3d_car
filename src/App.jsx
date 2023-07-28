@@ -9,6 +9,7 @@ function App() {
   const [colorWheel, setColorWheel] = useState('#fff')
   const [colorTires, setColorTires] = useState('#000')
   const [colorInterior, setColorInterior] = useState('#000')
+  const [colorLogo, setColorLogo] = useState('#000')
 
   const [isActive, setIsActive] = useState(false)
 
@@ -27,6 +28,10 @@ function App() {
 
   const onChangeColorInterior = (e) => {
     setColorInterior(e.target.value)
+  }
+
+  const onChangeColorLogo = (e) => {
+    setColorLogo(e.target.value)
   }
 
   const showMenu = () => {
@@ -64,12 +69,16 @@ function App() {
                 <h3>Choose a color of interior!</h3>
                 <input className='colorInput' type='color' onChange={onChangeColorInterior} value={colorInterior} />
               </div>
+              <div className="choose_a_color">
+                <h3>Choose a color of logo!</h3>
+                <input className='colorInput' type='color' onChange={onChangeColorLogo} value={colorLogo} />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <Canvas camera={{ position: [-2, 4, 12], fov: 60 }}>
-        <Experience color={color} colorWheel={colorWheel} colorTires={colorTires} colorInterior={colorInterior} />
+        <Experience color={color} colorWheel={colorWheel} colorTires={colorTires} colorInterior={colorInterior} colorLogo={colorLogo} />
       </Canvas>
     </>
   )
