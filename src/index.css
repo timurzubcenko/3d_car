@@ -7,13 +7,14 @@
 #root {
   width: 100vw;
   height: 100vh;
-  background-color: #d9afd9;
-  background-image: linear-gradient(0deg, #302c32 0%, #5e777b 100%);
+  /* background-color: #d9afd9; */
+  background-image: linear-gradient(0deg, #2c2d32 0%, #5e657b 100%);
 }
 
 body {
   overflow: hidden;
   font-family: sans-serif;
+  color: white;
 }
 
 .wrapper_color {
@@ -24,22 +25,77 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   z-index: 100;
+  margin: 10px;
+}
+
+.menu {
+  border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  gap: 40px;
+  cursor: pointer;
+  background: #bebebe50;
+  border-radius: 5px;
+  border: 2px solid #d2d2d2
+}
+
+.buttons.active {
+  border-radius: 5px 5px 0 0;
+}
+
+.buttons h2 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.list {
+  transition: all .2s;
+  background: #bebebe50;
+  border-radius: 0px 0px 5px 5px;
+  border: 2px solid #d2d2d2;
+  margin-top: -2px;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+.list.active {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+
+.arrow {
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow.active {
+  transform: rotate(180deg);
+  transform-origin: 50% 50%;
 }
 
 .choose_a_color {
-  background: white;
+  gap: 40px;
+  padding: 5px;
+  color: #313738;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 10px;
-  padding: 3px;
-  border-radius: 5px;
-  color: #313738;
+  justify-content: space-between;
 }
 
 .choose_a_color h3 {
   font-weight: 300;
+  color: white;
 }
 
 .colorInput {
@@ -49,5 +105,5 @@ body {
   border-radius: 5px;
   width: 80px;
   height: 50px;
-  background: white;
+  background: #d8d8d850;
 }
